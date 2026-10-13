@@ -1924,3 +1924,136 @@ def main():
     print(f'A media dos valores multiplos de 5: {media}')
     print(f'A difereça do maior par e menor impar: {dif}')  
 main()
+
+#1. Crie um programa com uma função que recebe uma lista de números inteiros e um número inteiro $x$ (2 parâmetros). A função deve calcular e retornar a quantidade de vezes que o valor $x$ aparece dentro da lista. 
+#O programa principal deve preencher uma lista com 15 números inteiros aleatórios entre 10 e 30, solicitar que o usuário digite um valor inteiro para busca, chamar a função passando ambos os argumentos e exibir o total de ocorrências encontradas.
+
+from random import randint
+
+def busca(lis, x):
+
+    quant = 0
+
+    for i in range(len(lis)):
+        if lis[i] == x:
+            quant += 1 
+
+    return quant
+
+def main():
+
+    lis = [randint(10, 30)for _ in range(15)]
+    print(lis)
+
+    x = int(input('\nDigite o valor x de busca:'))
+
+    p = busca(lis, x)
+
+    print(f'A quantidade de vezes que {x} apareceu na lista foi de {p}')
+main()
+
+#2. Criar um programa com uma função que recebe uma lista com valores inteiros e dois valores inteiros a e b como parâmetros (3 parâmetros). A função deve retornar uma lista contendo as posições (índices) dos valores que estão entre a e b, incluindo os próprios limites.
+# O programa principal deve gerar e mostrar uma lista com 20 valores inteiros aleatórios entre -30 e 70, ler dois valores inteiros fornecidos pelo usuário e chamar a função passando a lista e os dois valores como parâmetros. Mostrar as posições encontradas no final.
+
+from random import randint
+
+def busca(lis, a, b):
+
+    novalis = []
+
+    for i in range(len(lis)):
+        if a <= lis[i] <= b:
+            novalis.append(i)
+
+    return novalis
+
+def main():
+
+    lis = [randint(-30, 70)for _ in range(20)]
+    print(lis)
+
+    a = int(input('\n Digite o valor de a: '))
+    b = int(input('\n Digite o valor de b: '))
+
+    p = busca(lis, a, b)
+
+    print(f'\n Os indices dos valores que estão entre {a} e {b} são: {p}')
+main()
+
+# 3. Criar um programa com uma função que recebe uma lista com valores inteiros como parâmetro. A função deve retornar uma lista contendo as posições (índices) dos valores que aparecem apenas uma vez na lista original. 
+#O programa principal deve gerar e mostrar uma lista com 20 valores inteiros aleatórios entre 1 e 30, chamar a função passando a lista como parâmetro e mostrar as posições dos valores que não se repetem no final.
+
+from random import randint
+
+def unica(lis):
+
+    newlis = []
+
+    for i in range(len(lis)):
+        if lis.count(lis[i]) == 1:
+            newlis.append(i)
+
+    return newlis
+
+def main():
+
+    lis = [randint(1, 30)for _ in range(20)]
+    print(lis)
+
+    p = unica(lis)
+
+    print(f'O indice dos valores que aparecem somente uma vez na lista é : {p}')
+main()
+
+#4. Criar um programa com uma função que recebe uma lista com valores inteiros e um valor inteiro x como parâmetros (2 parâmetros). A função deve retornar uma lista contendo as posições (índices) dos valores que aparecem antes da primeira ocorrência de x na lista. Caso x não exista na lista, a função deve retornar uma lista vazia. 
+#O programa principal deve gerar e mostrar uma lista com 20 valores inteiros aleatórios entre 1 e 50, ler um valor inteiro fornecido pelo usuário, chamar a função passando a lista e x como parâmetros e mostrar o resultado no final.
+
+from random import randint
+
+def func(lis, x):
+
+    indices = []
+
+    for i in range(len(lis)):
+        if lis[i] == x:
+            break
+        indices.append(i)
+
+    return indices
+
+def main():
+
+    lis = [randint(1, 50)for _ in range(20)]
+    print(lis)
+
+    x = int(input('\n Digite o valor referencia de X: '))
+
+    p = func(lis, x)
+
+    print(f'Os indices dos valores que aparecem até {x} são: {p}')
+main()
+
+#5. Criar um programa com uma função que recebe uma lista com valores inteiros como parâmetro. A função deve retornar uma lista contendo as posições (índices) dos elementos que possuem o mesmo valor que o elemento imediatamente anterior. O primeiro elemento da lista não deve ser considerado, pois não possui um elemento anterior. 
+#O programa principal deve gerar e mostrar uma lista com 20 valores inteiros aleatórios entre 1 e 10, chamar a função passando a lista como parâmetro e mostrar as posições encontradas no final.
+
+from random import randint
+
+def busca(lis):
+
+    indices = []
+
+    for i in range(1, len(lis)):
+        if lis[i] == lis[i - 1]:
+            indices.append(i)
+
+    return indices
+
+def main():
+
+    lis = [randint(1,10)for _ in range(20)]
+    print(lis)
+
+    p = busca(lis)
+
+    print(f'A lista de indeces dos valores que são iguais ao seus sucessores é: {p}')
+main()
