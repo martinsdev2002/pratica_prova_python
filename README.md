@@ -1,2 +1,0 @@
-# pratica_prova_python
-EXERCICIOS PRATICOS PARA PROVA DE PYTHON 
