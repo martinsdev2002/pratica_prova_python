@@ -2057,3 +2057,270 @@ def main():
 
     print(f'A lista de indeces dos valores que são iguais ao seus sucessores é: {p}')
 main()
+
+#1.Criar um programa com uma função que recebe uma lista com valores inteiros como parâmetro, calcula e retorna:
+1. O menor e o maior valor da lista.
+2. A quantidade de valores positivos.
+3. A média aritmética dos valores pares.
+4. A diferença entre o maior valor ímpar e o menor valor par (maior_impar - menor_par).
+#O programa principal deve gerar e mostrar uma lista com 15 valores inteiros aleatórios entre -30 e 30, chamar a função passando a lista como parâmetro e mostrar os resultados retornados no final.
+
+from random import randint 
+
+def calculos(lis):
+
+    maior = max(lis)
+    menor = min(lis)
+
+    quant = 0
+    for i in range(len(lis)):
+        if lis[i] > 0:
+            quant += 1 
+
+    pares = []
+    imp = []
+
+    for i in range(len(lis)):
+        if lis[i] %2 == 0:
+            pares.append(i)
+        else:
+            imp.append(i)
+
+    media = len(pares) / sum(pares)
+
+    maiori = max(imp)
+    menorp = min(pares)
+
+    dif = maiori - menorp
+
+    return maior, menor, media, dif
+
+def main():
+
+    lis =[randint(-30, 30)for _ in range(15)]
+    print(lis)
+
+    maior, menor, media, dif = calculos(lis)
+
+    print(f'O maior valor da lista é: {maior}')
+    print(f'O menor valor da lista é: {menor}')
+    print(f'A media dos valores pares: {media}')
+    print(f'A diferencia do maior impar e menor impar: {dif}')
+main()
+
+#2. Criar um programa com uma função que recebe uma lista com valores inteiros como parâmetro, calcula e retorna:
+1. A quantidade de valores negativos.
+2. A soma dos valores positivos.
+3. O menor valor negativo e o maior valor positivo.
+4. A diferença entre o maior valor positivo e o menor valor negativo (maior_positivo - menor_negativo).
+#O programa principal deve gerar e mostrar uma lista com 20 valores inteiros aleatórios entre -50 e 50, chamar a função passando a lista como parâmetro e mostrar os resultados retornados no final.
+
+from random import randint
+
+def calculos(lis):
+
+    quant = 0
+
+    for i in range(len(lis)):
+        if lis[i] < 0:
+            quant += 1 
+
+    posi = []
+
+    for i in range(len(lis)):
+        if lis[i] < 0: 
+            posi.append(i)
+        
+
+    soma = sum(posi)
+
+    neg = []
+
+    for i in range(len(lis)):
+        if lis[i] < 0:
+            neg.append(i)
+
+    menorn = min(neg)
+    maiorp = max(posi)
+
+    dif = menorn - maiorp
+
+    return quant, soma, menorn, maiorp, dif
+
+def main():
+
+    lis = [randint(-50, 50)for _ in range(20)]
+    print(lis)
+
+    quant, soma, menorn, maiorp, dif = calculos(lis)
+
+    print(f'O maior par valor da lista é: {maiorp}')
+    print(f'O menor impar valor da lista é: {menorn}')
+    print(f'A soma dos valores positivos: {soma}')
+    print(f'A diferencia do maior positivo e menor neagativo: {dif}')
+    print(f'A quantidade de valores negativos: {quant}')
+main()
+
+#3. Criar um programa com uma função que recebe uma lista com valores inteiros como parâmetro, calcula e retorna:
+1. O segundo maior valor da lista.
+2. A quantidade de valores múltiplos de 3.
+3. A média aritmética dos valores negativos.
+4. A diferença entre o maior valor par e o menor valor ímpar (maior_par - menor_impar).
+#O programa principal deve gerar e mostrar uma lista com 15 valores inteiros aleatórios entre -20 e 20, chamar a função passando a lista como parâmetro e mostrar os resultados retornados no final.
+
+from random import randint
+
+def calculos(lis):
+
+    lis = sorted(lis)
+
+    quant = 0
+
+    for i in range(len(lis)):
+        if lis[i] %3 == 0:
+            quant += 1 
+
+    vn = []
+
+    for i in range(len(lis)):
+        if lis[i] < 0:
+            vn.append(i)
+
+    media = len(vn) / sum(vn)
+
+    par = []
+    imp = []
+
+    for i in range(len(lis)):
+        if lis[i] %2 == 0:
+            par.append(i)
+        else:
+            imp.append(i)
+
+    maiorp = max(par)
+    menori = min(par)
+
+    dif = maiorp - menori
+     
+    return lis[-2], quant, media, dif
+
+def main():
+
+    lis = [randint(-20, 20)for _ in range(15)]
+    print(lis)
+
+    lis[-2], quant, media, dif = calculos(lis)
+
+    print(f'O segundo maior valor da lista é: {lis[-2]}')
+    print(f'A quantidade de multiplos de 3: {quant}')
+    print(f'A media dos valores negativos: {media}')
+    print(f'A diferencia do maior positivo e menor neagativo: {dif}')
+main()
+
+#4. Criar um programa com uma função que recebe uma lista com valores inteiros como parâmetro, calcula e retorna:
+1. O maior e o menor valor da lista.
+2. A quantidade de valores divisíveis por 2 e por 3 ao mesmo tempo.
+3. A soma dos valores ímpares.
+4. A diferença entre o maior valor positivo e o menor valor negativo (maior_positivo - menor_negativo).
+#O programa principal deve gerar e mostrar uma lista com 20 valores inteiros aleatórios entre -40 e 40, chamar a função passando a lista como parâmetro e mostrar os resultados retornados no final.
+
+from random import randint
+
+def calculos(lis):
+
+    maior = max(lis)
+    menor = min(lis)
+
+    quant = 0 
+
+    for i in range(len(lis)):
+        if lis[i] %2 == 0 and lis[i] %3 == 0:
+            quant += 1 
+
+    imp = []
+
+    for i in range(len(lis)):
+        if lis[i] %3 == 0:
+            imp.append(i)
+
+    soma = sum(imp)
+
+    positivo = []
+    negativo = []
+
+    for i in range(len(lis)):
+        if lis[i] > 0:
+            positivo.append(i)
+        else:
+            negativo.append(i)
+
+    maiorp = max(positivo)
+    menorn = min(negativo)
+
+    dif = maiorp - menorn
+
+    return maior, menor, quant, soma, dif
+
+def main():
+
+    lis = [randint(-40, 40)for _ in range(20)]
+    print(lis)
+
+    maior, menor, quant, soma, dif = calculos(lis)
+
+    print(f'O maior numero da lista é: {maior}')
+    print(f'O menor numero da lista é: {menor}')
+    print(f'A quantidade de valores divisiveis por 3 e 2 ao mesmo tempo: {quant}')
+    print(f'A soma dos valores impares: {soma}')
+    print(f'A diferença entre o maior par e menor impar: {dif}')
+main()
+
+#5. Criar um programa com uma função que recebe uma lista com valores inteiros como parâmetro, calcula e retorna:
+1. O maior e o menor valor par da lista.
+2. A quantidade de valores múltiplos de 10.
+3. A lista contendo os índices dos elementos negativos.
+4. A média aritmética dos valores ímpares.
+#O programa principal deve gerar e mostrar uma lista com 15 valores inteiros aleatórios entre -20 e 20, chamar a função passando a lista como parâmetro e mostrar os resultados retornados no final.
+
+from random import randint 
+
+def calculos(lis):
+
+    maior = max(lis)
+    menor = min(lis)
+
+    quant = 0
+
+    for i in range(len(lis)):
+        if lis[i] %10 == 0:
+            quant += 1 
+
+    indice = []
+
+    for i in range(len(lis)):
+        if lis[i] < 0 :
+            indice.append(i)
+
+    imps = []
+
+    for i in range(len(lis)):
+        if lis[i] %3 == 0:
+            imps.append(i)
+
+    media = len(imps) / sum(imps)
+
+    return maior, menor, quant, indice, media
+
+def main():
+
+    lis = [randint(-20, 20)for _ in range(15)]
+    print(lis)
+
+    maior, menor, quant, indice, media = calculos(lis)
+
+    print(f'O maior valor da lista é: {maior}')
+    print(f'O menor valor da lita é: {menor}')
+    print(f'A quantidade de valores multiplos de 10: {quant}')
+    print(f'Os indices dos valores negativos são: {indice}')
+    print(f'A media dos valores negativos são: {media}')
+main()
